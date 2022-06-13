@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if color_len == 99 %}
+нет данных
+{% else %}
+<p>Цвет: {{color.0}} || угадал: {{color.1}}</p>
+{% endif %}
+<p>Не отгаданные индексы: {{color_len}} из 99</p>
+<form method="post" action="{% url 'color' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">submit</button>
+</form>
+</body>
+</html>
